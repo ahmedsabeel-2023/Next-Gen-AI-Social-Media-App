@@ -1,0 +1,192 @@
+:root {
+  /* HSL Color Palette - Arcane/Cyberpunk inspired */
+  /* HSL Color Palette - Blue Theme */
+  --bg-dark: 220 80% 10%;
+  --bg-card: 220 70% 15%;
+  --bg-card-hover: 220 70% 20%;
+
+  --primary: 260 100% 65%;
+  /* Neon Purple */
+  --primary-light: 260 100% 75%;
+  --primary-glow: 260 100% 65%;
+  --secondary: 190 100% 50%;
+  /* Cyan */
+
+  --text-main: 0 0% 100%;
+  --text-primary: 0 0% 100%;
+  /* Alias for compatibility */
+  --text-muted: 240 10% 70%;
+  --text-secondary: 240 10% 60%;
+  /* Alias for compatibility */
+
+  --success: 150 100% 40%;
+  --danger: 0 100% 60%;
+
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Borders */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: hsl(var(--bg-dark));
+  color: hsl(var(--text-main));
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Better mobile text rendering */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Mobile-friendly base font size */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    /* Prevents zoom on input focus in iOS */
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+
+  button,
+  a,
+  input,
+  textarea {
+    min-height: 44px;
+    /* Apple's recommended touch target size */
+  }
+}
+
+/* Utilities */
+.glass,
+.glass-panel {
+  background: hsla(var(--bg-card), 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsla(255, 100%, 100%, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-panel:hover {
+  border-color: hsla(var(--primary), 0.4);
+  box-shadow: 0 0 25px hsla(var(--primary-glow), 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(280, 100%, 50%));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px hsla(var(--primary-glow), 0.5);
+  filter: brightness(1.1);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: hsl(var(--text-muted));
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: hsl(var(--text-main));
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--bg-dark));
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Global Input Styles */
+input,
+textarea {
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: hsl(var(--text-muted));
+}
+
+/* Prevent zoom on input focus in iOS */
+@media (max-width: 768px) {
+
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
